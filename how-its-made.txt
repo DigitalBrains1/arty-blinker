@@ -1,0 +1,32 @@
+$ stack new arty-blinker clash-lang/simple
+$ cd arty-blinker
+
+edit .gitignore to contain the line:
+/vivado/build/
+
+And we should make the following part of the starter project's .gitignore:
+/stack.yaml.lock
+
+$ mkdir vivado
+$ cd vivado
+
+<This next line is stupid. We accidentally broke something with the way you>
+<are supposed to do it.>
+$ wget https://raw.githubusercontent.com/clash-lang/clash-compiler/v1.8.1/clash-lib/data-files/tcl/clashConnector.tcl
+
+Write the files vivado/synth.tcl and vivado/synth.sh from scratch
+
+Get Synopsys Design Constraints for your board, like
+https://github.com/Digilent/digilent-xdc/blob/master/Arty-A7-35-Master.xdc
+and customize that into vivado/Arty-A7-35-BlinkerClockWizard.xdc
+
+Write your Clash source, this repo has a blinker
+
+stack build
+
+-----------------------------------------------------------------------------
+
+And then every time you want to make a bitstream from source:
+
+stack run -- clash -Wall --verilog Blinker
+vivado/synth.sh

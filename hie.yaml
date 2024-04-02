@@ -1,0 +1,12 @@
+cradle:
+  cabal:
+    - path: "./src"
+      component: "lib:arty-blinker"
+    - path: "./tests/doctests.hs"
+      component: "arty-blinker:doctests"
+    - path: "./tests"
+      component: "arty-blinker:test-library"
+    - path: "./bin/Clashi.hs"
+      component: "arty-blinker:exe:clashi"
+    - path: "./bin/Clash.hs"
+      component: "arty-blinker:exe:clash"
