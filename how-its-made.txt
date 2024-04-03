@@ -22,11 +22,16 @@ and customize that into vivado/Arty-A7-35-BlinkerClockWizard.xdc
 
 Write your Clash source, this repo has a blinker
 
-stack build
+Customize arty-blinker.cabal
+
+$ stack build
 
 -----------------------------------------------------------------------------
 
 And then every time you want to make a bitstream from source:
 
-stack run -- clash -Wall --verilog Blinker
-vivado/synth.sh
+$ stack run -- clash --verilog Blinker
+$ vivado/synth.sh
+
+The invocation of Clash here will automatically rebuild your Clash design if
+you made any changes, no further invocations of `stack build` necessary.
